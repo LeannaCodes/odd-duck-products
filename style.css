@@ -1,65 +1,66 @@
 header {
-    display:flex;
-    justify-content: row;
+  display: flex;
+  justify-content: row;
 }
 
 #logo {
-    border-radius: 50%;
-    justify-content: flex-start;
-    width: 150px;
+  border-radius: 50%;
+  justify-content: flex-start;
+  width: 150px;
 }
 
 .container {
-    border: solid;
-    border-color:aqua;
-    display: grid;
-    grid-template-columns: 25% 75%;
-    min-height: 75vh;
+  border: solid;
+  border-color: aqua;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  min-height: 75vh;
 }
 
 ul {
-    height: 100%;
-    border: solid;
-    border-color: black;
+  height: 100%;
+  border: solid;
+  border-color: black;
 }
 
 .results-div {
-    border: solid;
-    border-color: orange;
+  border: solid;
+  border-color: orange;
 }
 
 .content {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.images-div {
-    display:flex;
-    border: solid;
-    border-color: hotpink;
-    align-items: center;
-    justify-content: space-around;
+#images-div {
+  display: flex;
+  border: solid;
+  border-color: hotpink;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .images {
-    width: 33%;
+  width: 33%;
 }
 
 .paragraph-div {
-    border: solid;
-    border-color: greenyellow;
+  border: solid;
+  border-color: greenyellow;
 }
 
 p {
-    padding: 4rem;
+  padding: 4rem;
 }
-
 
 footer {
-    border: solid;
-    border-color:purple;
-    padding: 4rem;
+  border: solid;
+  border-color: purple;
+  padding: 4rem;
 }
 
-
+.hide {
+  display: none;
+}

@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Odd Ducks</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <img id="logo" src="img/dog-duck.jpg" />
-        <h1>Odd Ducks</h1>
+      <img id="logo" src="img/dog-duck.jpg" />
+      <h1>Odd Ducks</h1>
     </header>
 
     <div class="container">
+      <div class="results">
+        <button id="results-btn" hidden>View results</button>
+        <ul id="results-list" class="hide">
+          <!-- This is where the results will go -->
+          <h2>Results</h2>
+        </ul>
+      </div>
 
-        <div class="results">
-
-            <ul>
-            <!-- This is where the results will go -->
-            <h2>Results</h2>
-                <li>result 1</li>
-                <li>result 2</li>
-                <li>result 3</li>
-                <li>result 4</li>
-                <li>result 5</li>
-            </ul>
+      <div class="content">
+        <div id="images-div">
+          <!-- <img class="images" src="img/bag.jpg" />
+          <img class="images" src="img/banana.jpg" />
+          <img class="images" src="img/bathroom.jpg" /> -->
         </div>
 
-        <div class="content">
-
-            <div class="images-div">
-                <img class="images" src="img/bag.jpg">
-                <img class="images" src="img/banana.jpg">
-                <img class="images" src="img/bathroom.jpg">
-            </div>
-
-            <div class="paragraph-div">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, incidunt aliquid. Labore est aut aliquam unde ducimus doloremque accusamus adipisci voluptates incidunt harum, pariatur perferendis repellat in dolorem consequatur distinctio?</p>
-            </div>
+        <div class="paragraph-div">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
+            incidunt aliquid. Labore est aut aliquam unde ducimus doloremque
+            accusamus adipisci voluptates incidunt harum, pariatur perferendis
+            repellat in dolorem consequatur distinctio?
+          </p>
         </div>
+      </div>
     </div>
 
-<footer> hey im a footer</footer>
- <script> src="app.js" </script>   
-</body>
+    <footer>hey im a footer</footer>
+    <script src="app.js"></script>
+  </body>
 </html>
