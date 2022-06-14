@@ -14,7 +14,6 @@ const productNames = [
   "pet-sweep",
   "scissors",
   "shark",
-  "sweep",
   "tauntaun",
   "unicorn",
   "water-can",
@@ -66,13 +65,32 @@ Product.prototype.render = function () {
   });
 };
 
+//check whether local sotrage of prudcts exists
+// if it does, grab it and put it in my allPorcust
+//othersiese, generate it as I have already been doing
+
 // get all of our product objects
-for (let a = 0; a < productNames.length; a++) {
-  const myNewProduct = new Product(
-    productNames[a],
-    "img/" + productNames[a] + ".jpg"
-  );
-  allProducts.push(myNewProduct);
+if (localStorage.getItem("allProducts")) {
+
+    const allProductsInStorage = JSON.parse (localStorage.getItem("allProducts")) 
+
+    for (let a = 0; a < allProductsInStorage.length; a++) {
+      const myNewProduct = new Product(
+        allProductsInStorage[a].name,
+        allProductsInStorage[a].file,
+      );
+      allProductsInStorage.push(myNewProduct);
+    }
+
+} else {
+
+  for (let a = 0; a < productNames.length; a++) {
+    const myNewProduct = new Product(
+      productNames[a],
+      "img/" + productNames[a] + ".jpg"
+    );
+    allProducts.push(myNewProduct);
+  }
 } // here
 
 function getThreeProducts() {
@@ -116,6 +134,7 @@ function randomProduct() {
 
 // function that populates the reuslts div with our results
 function getResults() {
+  localStorage.setItem("allProducts", JSON.stringify(allProducts));
   // populate results list
   const resultsList = document.getElementById("results-list");
   let tableData = [];
@@ -128,7 +147,6 @@ function getResults() {
       li.textContent = `${allProducts[a].name} had ${allProducts[a].clicked} votes, and was viewed ${allProducts[a].viewed} times`; //"banana had 3 votes, and was seen 5 times."
       resultsList.appendChild(li);
       // get chart data
-
       tableData.push(itemClicks);
       productLabels.push(allProducts[a].name);
     }
@@ -179,3 +197,6 @@ function getResults() {
   button.classList.add("hide");
 }
 console.log(allProducts);
+
+// localStorage.setItem("products", JSON.stringify(allProducts));
+// JSON.parse(localStorage.getItem("products"));
