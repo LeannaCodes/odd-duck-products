@@ -79,27 +79,34 @@ function getThreeProducts() {
   let randNum1 = randomProduct();
   let randNum2 = randomProduct();
   let randNum3 = randomProduct();
-  
+
   const img1 = allProducts[randNum1];
   const img2 = allProducts[randNum2];
   const img3 = allProducts[randNum3];
 
-  if(prevRandomNumbers.includes(randNum1) || prevRandomNumbers.includes(randNum2) || prevRandomNumbers.includes(randNum3)) {
-    getThreeProducts();
-  }
-  
   if (img1 === img2 || img1 === img3 || img2 === img3) {
     getThreeProducts();
   } else {
-    prevRandomNumbers.push(randNum1)
-    prevRandomNumbers.push(randNum2)
-    prevRandomNumbers.push(randNum3)
-  
-    imagesDiv.innerHTML = "";
+    if (
+      prevRandomNumbers.includes(randNum1) ||
+      prevRandomNumbers.includes(randNum2) ||
+      prevRandomNumbers.includes(randNum3)
+    ) {
+      getThreeProducts();
+    } else {
+      prevRandomNumbers = [];
+      prevRandomNumbers.push(randNum1);
+      prevRandomNumbers.push(randNum2);
+      prevRandomNumbers.push(randNum3);
 
-    img1.render();
-    img2.render();
-    img3.render();
+      // prevRandomNumbers = [19, 8, 14]
+
+      imagesDiv.innerHTML = "";
+
+      img1.render();
+      img2.render();
+      img3.render();
+    }
   }
 }
 getThreeProducts();
@@ -122,50 +129,48 @@ function getResults() {
       resultsList.appendChild(li);
       // get chart data
 
-      tableData.push(itemClicks)
-      productLabels.push(allProducts[a].name)
-
+      tableData.push(itemClicks);
+      productLabels.push(allProducts[a].name);
     }
   }
 
-
-  const ctx = document.getElementById("chart").getContext("2d")
+  const ctx = document.getElementById("chart").getContext("2d");
   // const data = [2, 3, 4, 5, 6, 7, 8] // no. votes
   // const productLabels = ["poo", "poo", "poo", "poo", "poo", "poo", "poo"] // product names
 
   const chartColors = [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)',
-    'rgba(75, 192, 192, 0.2)',
-    'rgba(153, 102, 255, 0.2)',
-    'rgba(255, 159, 64, 0.2)']
+    "rgba(255, 99, 132, 0.2)",
+    "rgba(54, 162, 235, 0.2)",
+    "rgba(255, 206, 86, 0.2)",
+    "rgba(75, 192, 192, 0.2)",
+    "rgba(153, 102, 255, 0.2)",
+    "rgba(255, 159, 64, 0.2)",
+  ];
 
   const myChart = new Chart(ctx, {
     type: "bar",
-  data: {
-    labels: productLabels,
-    datasets: [
-      {
-        label: "# of Votes",
-        data: tableData,
-        backgroundColor: chartColors,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
+    data: {
+      labels: productLabels,
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "# of Votes",
+          data: tableData,
+          backgroundColor: chartColors,
         },
       ],
     },
-  },
-  })
-
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
 
   resultsList.classList.remove("hide");
 
@@ -174,7 +179,3 @@ function getResults() {
   button.classList.add("hide");
 }
 console.log(allProducts);
-
-
-
-
